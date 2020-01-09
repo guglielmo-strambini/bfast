@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 23, 2019 alle 16:57
--- Versione del server: 10.1.36-MariaDB
--- Versione PHP: 7.2.10
+-- Creato il: Gen 09, 2020 alle 10:18
+-- Versione del server: 10.1.37-MariaDB
+-- Versione PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,6 +44,7 @@ CREATE TABLE `bar` (
   `ID` int(8) NOT NULL,
   `IDmeFK` int(8) NOT NULL,
   `Nome` varchar(20) NOT NULL,
+  `indirizzo` varchar(20) NOT NULL,
   `OrarioApertura` varchar(20) NOT NULL,
   `OrarioChiusura` varchar(20) NOT NULL,
   `Valutazione` float NOT NULL,
@@ -52,6 +53,14 @@ CREATE TABLE `bar` (
   `Immagine` longblob NOT NULL,
   `Fascia` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `bar`
+--
+
+INSERT INTO `bar` (`ID`, `IDmeFK`, `Nome`, `indirizzo`, `OrarioApertura`, `OrarioChiusura`, `Valutazione`, `email`, `password`, `Immagine`, `Fascia`) VALUES
+(1, 1, 'Bar pippo', 'via 3', '9:00', '12:00', 3, 'coca@gmail.com', '321', '', 0),
+(2, 2, 'Bar rum', 'via 9', '8:00', '20:00', 1, 'cola@gmail.com', '421', '', 0);
 
 -- --------------------------------------------------------
 
@@ -92,6 +101,14 @@ CREATE TABLE `menu` (
   `ID` int(11) NOT NULL,
   `disponibilità` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `menu`
+--
+
+INSERT INTO `menu` (`ID`, `disponibilità`) VALUES
+(1, 7),
+(2, 8);
 
 -- --------------------------------------------------------
 
@@ -212,7 +229,7 @@ ALTER TABLE `appartiene`
 -- AUTO_INCREMENT per la tabella `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `contiene`
@@ -230,7 +247,7 @@ ALTER TABLE `fattorino`
 -- AUTO_INCREMENT per la tabella `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `ordine`

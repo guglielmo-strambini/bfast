@@ -33,7 +33,6 @@ public class Utente implements Serializable {
 
 	private String nome;
 
-
 	private String password;
 
 
@@ -64,7 +63,6 @@ public class Utente implements Serializable {
 	}
 
 
-
 	public Date getData_di_nascita() {
 		return this.data_di_nascita;
 	}
@@ -73,7 +71,6 @@ public class Utente implements Serializable {
 		this.data_di_nascita = data_di_nascita;
 	}
 
-
 	public String getEmail() {
 		return this.email;
 	}
@@ -81,6 +78,8 @@ public class Utente implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 	public Date getNascità() {
 		return this.nascità;
@@ -98,7 +97,6 @@ public class Utente implements Serializable {
 		this.nome = nome;
 	}
 
-	
 
 	public String getPassword() {
 		return this.password;
@@ -109,7 +107,6 @@ public class Utente implements Serializable {
 	}
 
 
-
 	public int getTelefono() {
 		return this.telefono;
 	}
@@ -117,7 +114,6 @@ public class Utente implements Serializable {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-
 
 
 	public List<Ordine> getOrdines() {

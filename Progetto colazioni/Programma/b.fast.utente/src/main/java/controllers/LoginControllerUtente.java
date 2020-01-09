@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import business.AutenticazioneBar;
-import model.Bar;
+import business.AutenticazioneUtente;
+import model.Utente;
 
 @WebServlet("/login")
-public class LoginControllerBar extends HttpServlet {
+public class LoginControllerUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginControllerBar() {
+	public LoginControllerUtente() {
 		super();
 	}
 
@@ -28,9 +28,9 @@ public class LoginControllerBar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AutenticazioneBar am = new AutenticazioneBar();
-		Bar b = am.login(request.getParameter("ID"), request.getParameter("password"));
-		if (b == null) {
+		AutenticazioneUtente au = new AutenticazioneUtente();
+		Utente b = au.login(request.getParameter("mail"), request.getParameter("password"));
+		if (b != null) {
 			request.getRequestDispatcher("/").forward(request, response);
 		} else {
 			request.getRequestDispatcher("/ok.html").forward(request, response);

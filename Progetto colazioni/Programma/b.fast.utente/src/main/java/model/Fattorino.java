@@ -7,12 +7,12 @@ import java.util.List;
 
 
 /**
- * The persistent class for the utente database table.
+ * The persistent class for the fattorino database table.
  * 
  */
 @Entity
-@NamedQuery(name="Utente.findAll", query="SELECT u FROM Utente u")
-public class Utente implements Serializable {
+@NamedQuery(name="Fattorino.findAll", query="SELECT f FROM Fattorino f")
+public class Fattorino implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -20,31 +20,22 @@ public class Utente implements Serializable {
 
 	private String cognome;
 
+	private String domanda;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="`Data di nascita`")
-	private Date data_di_nascita;
-
-	private String email;
-
+	private String mail;
 
 	@Temporal(TemporalType.DATE)
 	private Date nascità;
 
 	private String nome;
 
-
 	private String password;
 
-
-	private int telefono;
-
-
 	//bi-directional many-to-one association to Ordine
-	@OneToMany(mappedBy="utente")
+	@OneToMany(mappedBy="fattorino")
 	private List<Ordine> ordines;
 
-	public Utente() {
+	public Fattorino() {
 	}
 
 	public int getId() {
@@ -63,23 +54,20 @@ public class Utente implements Serializable {
 		this.cognome = cognome;
 	}
 
-
-
-	public Date getData_di_nascita() {
-		return this.data_di_nascita;
+	public String getDomanda() {
+		return this.domanda;
 	}
 
-	public void setData_di_nascita(Date data_di_nascita) {
-		this.data_di_nascita = data_di_nascita;
+	public void setDomanda(String domanda) {
+		this.domanda = domanda;
 	}
 
-
-	public String getEmail() {
-		return this.email;
+	public String getMail() {
+		return this.mail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	public Date getNascità() {
@@ -98,8 +86,6 @@ public class Utente implements Serializable {
 		this.nome = nome;
 	}
 
-	
-
 	public String getPassword() {
 		return this.password;
 	}
@@ -107,18 +93,6 @@ public class Utente implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
-
-	public int getTelefono() {
-		return this.telefono;
-	}
-
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
-	}
-
-
 
 	public List<Ordine> getOrdines() {
 		return this.ordines;
@@ -130,14 +104,14 @@ public class Utente implements Serializable {
 
 	public Ordine addOrdine(Ordine ordine) {
 		getOrdines().add(ordine);
-		ordine.setUtente(this);
+		ordine.setFattorino(this);
 
 		return ordine;
 	}
 
 	public Ordine removeOrdine(Ordine ordine) {
 		getOrdines().remove(ordine);
-		ordine.setUtente(null);
+		ordine.setFattorino(null);
 
 		return ordine;
 	}
